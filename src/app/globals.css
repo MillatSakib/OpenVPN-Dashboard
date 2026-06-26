@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-dark-bg text-brand-primary antialiased max-w-full overflow-x-hidden;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+}
+
+/* Custom Scrollbar styled with utility colors */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: theme('colors.dark.bg');
+}
+::-webkit-scrollbar-thumb {
+  background: theme('colors.dark.border');
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
+/* Custom Component Classes mapped to Tailwind CSS utilities via @apply */
+@layer components {
+  .card {
+    @apply bg-dark-card border border-dark-border rounded-lg p-6;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white border-0 py-2.5 px-5 rounded-md font-semibold cursor-pointer transition-colors duration-200 inline-flex items-center gap-1.5 text-sm hover:bg-primary-dark disabled:opacity-50;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent text-brand-secondary border border-dark-border py-2.5 px-5 rounded-md font-medium cursor-pointer transition-all duration-200 inline-flex items-center gap-1.5 text-sm hover:text-brand-primary hover:border-neutral-500 disabled:opacity-50;
+  }
+
+  .btn-danger {
+    @apply bg-danger/15 text-danger border border-danger/30 py-2 px-4 rounded-md font-medium cursor-pointer transition-all duration-200 inline-flex items-center gap-1.5 text-xs hover:bg-danger/25 disabled:opacity-50;
+  }
+
+  .input-field {
+    @apply w-full bg-[#0D0D0D] border border-dark-border text-brand-primary rounded-md py-2.5 px-4 text-sm outline-none transition-colors duration-200 focus:border-primary placeholder:text-brand-muted;
+  }
+
+  .label {
+    @apply block text-xs font-medium text-brand-secondary mb-1.5;
+  }
+
+  .badge {
+    @apply inline-flex items-center py-1 px-2.5 rounded-full text-[11px] font-semibold uppercase tracking-wider;
+  }
+  .badge-green {
+    @apply bg-success/15 text-success;
+  }
+  .badge-red {
+    @apply bg-danger/15 text-danger;
+  }
+  .badge-orange {
+    @apply bg-primary/15 text-primary;
+  }
+  .badge-blue {
+    @apply bg-info/15 text-info;
+  }
+
+  .table-wrapper {
+    @apply overflow-x-auto rounded-lg border border-dark-border;
+  }
+
+  table {
+    @apply w-full border-collapse;
+  }
+  thead tr {
+    @apply bg-[#1A1A1A];
+  }
+  th {
+    @apply py-3 px-4 text-left text-xs font-semibold text-brand-muted uppercase tracking-wider border-b border-dark-border;
+  }
+  td {
+    @apply py-3.5 px-4 text-sm text-brand-primary border-b border-[#1E1E1E];
+  }
+  tr:last-child td {
+    @apply border-b-0;
+  }
+  tbody tr {
+    @apply hover:bg-white/[0.02];
+  }
+
+  .sidebar-link {
+    @apply flex items-center gap-3 py-2.5 px-4 rounded-lg text-brand-secondary no-underline text-sm font-medium transition-all duration-200 cursor-pointer hover:bg-primary/10 hover:text-primary;
+  }
+  .sidebar-link.active {
+    @apply bg-primary/15 text-primary;
+  }
+
+  .stat-card {
+    @apply bg-dark-card border border-dark-border rounded-lg p-5 flex flex-col gap-2;
+  }
+  .stat-card .stat-icon {
+    @apply w-10 h-10 rounded-lg flex items-center justify-center bg-primary/[0.12] text-primary;
+  }
+  .stat-card .stat-value {
+    @apply text-2xl font-bold text-brand-primary leading-none;
+  }
+  .stat-card .stat-label {
+    @apply text-[11px] text-brand-muted uppercase tracking-wider;
+  }
+
+  .modal-backdrop {
+    @apply fixed inset-0 bg-black/70 flex items-center justify-center z-50 backdrop-blur-[2px];
+  }
+  .modal-box {
+    @apply bg-dark-card border border-dark-border rounded-xl p-7 w-full max-w-[460px] relative;
+  }
+
+  .select-field {
+    @apply bg-[#0D0D0D] border border-dark-border text-brand-primary rounded-md py-2 px-3 text-sm outline-none cursor-pointer transition-colors duration-200 focus:border-primary;
+  }
+
+  .alert-success {
+    @apply bg-success/10 border border-success/30 text-success py-3 px-4 rounded-lg text-[13px];
+  }
+  .alert-error {
+    @apply bg-danger/10 border border-danger/30 text-danger py-3 px-4 rounded-lg text-[13px];
+  }
+
+  .page-header {
+    @apply mb-6;
+  }
+  .page-title {
+    @apply text-xl font-bold text-brand-primary;
+  }
+  .page-subtitle {
+    @apply text-[13px] text-brand-muted mt-1;
+  }
+}
